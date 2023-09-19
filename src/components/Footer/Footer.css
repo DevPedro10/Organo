@@ -1,0 +1,24 @@
+footer {
+    background-color: #5068F1;
+    display: flex;
+    height: 200px;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    
+}
+
+.redesSociais * {
+    width: 20px;
+    margin: 10px
+}
+
+.logo img {
+    width: 110px;
+}
+
+.infoDev * {
+    color: white;
+
+}

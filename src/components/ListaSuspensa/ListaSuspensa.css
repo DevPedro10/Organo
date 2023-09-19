@@ -1,0 +1,11 @@
+.suspend-list {}
+
+.suspend-list select {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin: 15px 0;
+}

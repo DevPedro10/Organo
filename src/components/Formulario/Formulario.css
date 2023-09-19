@@ -1,0 +1,33 @@
+.formulario {
+    max-width: 50%;
+    min-width: 400px;
+    display: block;
+    margin: 50px auto;
+}
+
+.formulario form {
+    background-color: #f2f2f2;
+    border-radius: 20px;
+    margin: auto;
+    padding: 20px 40px;
+}
+
+.formulario form {
+    font-weight: bold;
+}
+
+
+.formulario input {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin: 15px 0;
+    align-content: center;
+}
+
+.formulario form h1 {
+    /* text-align: center; */
+}

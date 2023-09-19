@@ -1,0 +1,9 @@
+.banner-container {
+    overflow: hidden;
+}
+
+.banner-image {
+  width: max-content;
+  height: max-content;
+  object-fit: cover;
+}

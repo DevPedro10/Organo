@@ -1,0 +1,39 @@
+:root{
+    --border-size-default: 16px
+}
+
+
+
+.colaborador {
+    margin: 32px;
+    width: 200px;
+    height: 270px;
+    position: relative;
+    border-radius: var(--border-size-default);
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+}
+
+.backgroundImage {
+    /* background-color: rgb(138, 13, 131); */
+    width: 100%;
+    height: 30%;
+    position: absolute;
+    top: 0;
+    border-radius: calc(var(--border-size-default) - 3px) calc(var(--border-size-default) - 3px) 0 0;
+}
+
+.colaborador .imgColaborador {
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.informacoes {
+    margin-top: 100px;
+    text-align: center;
+    display: block;
+}

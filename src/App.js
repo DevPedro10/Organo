@@ -4,31 +4,38 @@ import Banner from './components/Banner/Banner';
 import Formulario from './components/Formulario/Formulario';
 import Time from './components/Time/Time';
 import Footer from './components/Footer/Footer';
+import {v4 as uuidv4} from 'uuid';
 
 const App = () => {
 
   const [times, setTimes] = useState([
     {
+      id: uuidv4(),
       nome: 'Front-End',
       cor: '#82CFFA'
     },
     {
+      id: uuidv4(),
       nome: 'Data Science',
       cor: '#A6D157'
     },
     {
+      id: uuidv4(),
       nome: 'Devops',
       cor: '#E06B69'
     },
     {
+      id: uuidv4(),
       nome: 'UX e Design',
       cor: '#D86EBF'
     },
     {
+      id: uuidv4(),
       nome: 'Mobile',
       cor: '#FEBA05'
     },
     {
+      id: uuidv4(),
       nome: 'Inovação e Gestão',
       cor: '#FF8A29'
     }
@@ -41,9 +48,9 @@ const App = () => {
     setColaboradores([...colaboradores, colaborador])
   }
 
-  const mudarCorDoTime = (cor, nome) => {
+  const mudarCorDoTime = (cor, id) => {
     setTimes(times.map(time => {
-      if (time.nome === nome) {
+      if (time.id === id) {
         time.cor = cor
       }
       return time
@@ -57,7 +64,7 @@ const App = () => {
       {times.map(time => (
         <Time
           mudaCor={mudarCorDoTime}
-          timeNome={time.nome}
+          timeID={time.id}
           valor={time.cor}
           corDeFundo={time.cor}
           key={time.nome}

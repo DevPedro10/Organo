@@ -1,10 +1,16 @@
 import './Colaborador.css'
-const Colaborador = ({nome, cargo, imagem, corDeFundo}) => {
-    const acessibilidadeFotoDePefil = `Foto de perfil de ${nome}`
-    return(
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircleXmark } from '@fortawesome/free-solid-svg-icons'
+
+const Colaborador = ({ nome, cargo, imagem, corDeFundo, aoDeletar }) => {
+    const acessibilidadeFotoDePerfil = `Foto de perfil de ${nome}`
+    return (
         <section className='colaborador'>
-            <div className='backgroundImage' style={{ backgroundColor: corDeFundo}}>
-                <img src={imagem} alt={acessibilidadeFotoDePefil} className='imgColaborador'/>
+            <div className='deletarColaborador' onClick={aoDeletar}>
+            <FontAwesomeIcon className="iconCircleXmark" icon={faCircleXmark} size='2xl' />
+            </div>
+            <div className='backgroundImage' style={{ backgroundColor: corDeFundo }}>
+                <img src={imagem} alt={acessibilidadeFotoDePerfil} className='imgColaborador' />
             </div>
             <div className='informacoes'>
                 <h4 className='nomeColaborador'>{nome}</h4>

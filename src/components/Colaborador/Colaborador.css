@@ -1,16 +1,14 @@
-:root{
+:root {
     --border-size-default: 16px
 }
-
-
 
 .colaborador {
     margin: 32px;
     width: 200px;
     height: 270px;
-    position: relative;
     border-radius: var(--border-size-default);
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
 }
 
 .backgroundImage {
@@ -37,3 +35,19 @@
     text-align: center;
     display: block;
 }
+
+.deletarColaborador {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+    background-color: white;
+    border-radius: 100%;
+}
+
+.iconCircleXmark {
+    color: #ff0000;
+}
+

@@ -7,38 +7,32 @@ import Footer from './components/Footer/Footer';
 
 const App = () => {
 
-  const times = [
+  const [times, setTimes] = useState([
     {
       nome: 'Front-End',
-      corPrimaria: '#82CFFA',
-      corSecundaria: '#E8F8FF',
+      cor: '#82CFFA'
     },
     {
       nome: 'Data Science',
-      corPrimaria: '#A6D157',
-      corSecundaria: '#F0F8E2',
+      cor: '#A6D157'
     },
     {
       nome: 'Devops',
-      corPrimaria: '#E06B69',
-      corSecundaria: '#FDE7E8',
+      cor: '#E06B69'
     },
     {
       nome: 'UX e Design',
-      corPrimaria: '#D86EBF',
-      corSecundaria: '#FAE5F5',
+      cor: '#D86EBF'
     },
     {
       nome: 'Mobile',
-      corPrimaria: '#FEBA05',
-      corSecundaria: '#FFF5D9',
+      cor: '#FEBA05'
     },
     {
       nome: 'Inovação e Gestão',
-      corPrimaria: '#FF8A29',
-      corSecundaria: '#FFEEDF',
+      cor: '#FF8A29'
     }
-  ]
+  ])
 
   const [colaboradores, setColaboradores] = useState([])
 
@@ -47,18 +41,31 @@ const App = () => {
     setColaboradores([...colaboradores, colaborador])
   }
 
+  const mudarCorDoTime = (cor, nome) => {
+    setTimes(times.map(time => {
+      if (time.nome === nome) {
+        time.cor = cor
+      }
+      return time
+    }));
+  };
+
   return (
     <main className='App'>
       <Banner />
       <Formulario times={times.map(time => time.nome)} colaboradorCadastrado={colaborador => novoColaborador(colaborador)} />
       {times.map(time => (
         <Time
+          mudaCor={mudarCorDoTime}
+          timeNome={time.nome}
+          valor={time.cor}
+          corDeFundo={time.cor}
           key={time.nome}
           nome={time.nome}
-          corPrimaria={time.corPrimaria}
-          corSecundaria={time.corSecundaria}
+          cargo={time.cargo}
+          cor={time.cor}
           colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
-          />
+        />
       ))}
       <Footer />
     </main>

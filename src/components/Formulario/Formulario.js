@@ -4,7 +4,7 @@ import CampoDeTexto from "../CampoDeTexto/CampoDeTexto";
 import ListaSuspensa from "../ListaSuspensa/ListaSuspensa";
 import './Formulario.css'
 
-const Formulario = (props) => {
+const Formulario = ({ colaboradorCadastrado, times }) => {
 
     const submitForm = (event) => {
         event.preventDefault();
@@ -13,7 +13,7 @@ const Formulario = (props) => {
             \nCargo: ${cargo}
             \nURL da Imagem: ${imagem}
             \nTime: ${time}`)
-        props.colaboradorCadastrado({
+        colaboradorCadastrado({
             nome,
             cargo,
             imagem,
@@ -63,7 +63,7 @@ const Formulario = (props) => {
                 <ListaSuspensa
                     obrigatorio={true}
                     label="Times"
-                    itens={props.times}
+                    items={times}
                     valor={time}
                     aoAlterado={valor => setTime(valor)}
                 />

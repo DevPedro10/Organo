@@ -62,10 +62,16 @@ const App = () => {
     }));
   };
 
+  const cadastrarTime = (novoTime) => {
+    setTimes([...times, {...novoTime, id: uuidv4()}])
+  }
+
   return (
     <main className='App'>
       <Banner />
-      <Formulario times={times.map(time => time.nome)} colaboradorCadastrado={colaborador => novoColaborador(colaborador)} />
+      <Formulario 
+          cadastrarTime={cadastrarTime}
+          times={times.map(time => time.nome)} colaboradorCadastrado={colaborador => novoColaborador(colaborador)} />
       {times.map(time => (
         <Time
           aoDeletar={deletarColaborador}

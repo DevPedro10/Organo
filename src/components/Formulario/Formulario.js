@@ -1,10 +1,11 @@
 import { useState } from "react";
 import Botao from "../Botao/Botao";
 import CampoDeTexto from "../CampoDeTexto/CampoDeTexto";
+import CampoDeCor from "../CampoDeCor/CampoDeCor";
 import ListaSuspensa from "../ListaSuspensa/ListaSuspensa";
 import './Formulario.css'
 
-const Formulario = ({ colaboradorCadastrado, times }) => {
+const Formulario = ({ colaboradorCadastrado, times, cadastrarTime }) => {
 
     const submitForm = (event) => {
         event.preventDefault();
@@ -29,8 +30,11 @@ const Formulario = ({ colaboradorCadastrado, times }) => {
     const [imagem, setImagem] = useState('')
     const [time, setTime] = useState('')
 
+    const [nomeTime, setNomeTime] = useState('');
+    const [corTime, setCorTime] = useState('#5068F1');
+
     return (
-        <section className="formulario">
+        <section className="formularios">
             <form onSubmit={submitForm}>
                 <h1>Preencha os dados para criar o card do colaborador.</h1>
                 <CampoDeTexto
@@ -69,6 +73,31 @@ const Formulario = ({ colaboradorCadastrado, times }) => {
                 />
                 <Botao>
                     Criar Card
+                </Botao>
+            </form>
+
+            <form onSubmit={e => {
+                e.preventDefault();
+                cadastrarTime({nome: nomeTime, cor: corTime});
+            }}>
+                <h1>Preencha os dados para criar um novo time</h1>
+                <CampoDeTexto
+                    obrigatorio
+                    type="text"
+                    id="nomeTime"
+                    label="Nome do time"
+                    placeholder="Digite o nome do novo time"
+                    valor={nomeTime}
+                    aoAlterado={valor => setNomeTime(valor)}
+                />
+                <CampoDeCor
+                    obrigatorio
+                    label="Cor do time"
+                    valor={corTime}
+                    aoAlterado={valor => setCorTime(valor)}
+                />
+                <Botao>
+                    Criar novo time
                 </Botao>
             </form>
         </section>

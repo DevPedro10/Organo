@@ -4,7 +4,7 @@ import Banner from './components/Banner/Banner';
 import Formulario from './components/Formulario/Formulario';
 import Time from './components/Time/Time';
 import Footer from './components/Footer/Footer';
-import {v4 as uuidv4} from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 
 const App = () => {
 
@@ -44,8 +44,13 @@ const App = () => {
   const [colaboradores, setColaboradores] = useState([])
 
   const novoColaborador = (colaborador) => {
-    console.log(colaborador)
-    setColaboradores([...colaboradores, colaborador])
+    const colaboradorNovo = { ...colaborador, id: uuidv4() }
+    setColaboradores([...colaboradores, colaboradorNovo])
+  }
+
+
+  const deletarColaborador = (id) => {
+    setColaboradores(colaboradores.filter(colaborador => colaborador.id !== id))
   }
 
   const mudarCorDoTime = (cor, id) => {
@@ -63,6 +68,7 @@ const App = () => {
       <Formulario times={times.map(time => time.nome)} colaboradorCadastrado={colaborador => novoColaborador(colaborador)} />
       {times.map(time => (
         <Time
+          aoDeletar={deletarColaborador}
           mudaCor={mudarCorDoTime}
           timeID={time.id}
           valor={time.cor}

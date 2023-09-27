@@ -10,6 +10,7 @@
 }
 
 .formularios form {
+    min-width: 30vw;
     background-color: #f2f2f2;
     border-radius: 20px;
     padding: 20px 40px;

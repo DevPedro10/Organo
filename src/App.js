@@ -44,7 +44,7 @@ const App = () => {
   const [colaboradores, setColaboradores] = useState([])
 
   const novoColaborador = (colaborador) => {
-    const colaboradorNovo = { ...colaborador, id: uuidv4() }
+    const colaboradorNovo = { ...colaborador, favorito: false, id: uuidv4() }
     setColaboradores([...colaboradores, colaboradorNovo])
   }
 
@@ -63,17 +63,25 @@ const App = () => {
   };
 
   const cadastrarTime = (novoTime) => {
-    setTimes([...times, {...novoTime, id: uuidv4()}])
+    setTimes([...times, { ...novoTime, id: uuidv4() }])
+  }
+
+  const verificaStatusFavorito = (id) => {
+    setColaboradores(colaboradores.map(colaborador => {
+      if (colaborador.id === id) colaborador.favorito = !colaborador.favorito;
+      return colaborador
+    }))
   }
 
   return (
     <main className='App'>
       <Banner />
-      <Formulario 
-          cadastrarTime={cadastrarTime}
-          times={times.map(time => time.nome)} colaboradorCadastrado={colaborador => novoColaborador(colaborador)} />
+      <Formulario
+        cadastrarTime={cadastrarTime}
+        times={times.map(time => time.nome)} colaboradorCadastrado={colaborador => novoColaborador(colaborador)} />
       {times.map(time => (
         <Time
+          statusFavorito={verificaStatusFavorito}
           aoDeletar={deletarColaborador}
           mudaCor={mudarCorDoTime}
           timeID={time.id}
